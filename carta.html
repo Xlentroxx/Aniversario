@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Aniversario</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: #ffe4e1;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffe4e1;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #ff69b4;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #ffb6c1;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            z-index: 1;
+        }
+
+        .envelope-details {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            height: 40px;
+            border-top: 2px solid #ff69b4;
+            border-bottom: 2px solid #ff69b4;
+        }
+
+        .letter {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .letter h1 {
+            color: #ff69b4;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .letter img {
+            display: block;
+            max-width: 100%;
+            margin: 30px auto;
+            border: 5px solid #ff69b4;
+            border-radius: 10px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope" id="envelope" onclick="showLetter()">
+            <div class="envelope-front">Para mi amor</div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-details"></div>
+        </div>
+    </div>
+
+    <div class="letter" id="letter">
+        <span class="close-button" onclick="hideLetter()">&times;</span>
+        <h1>💖Feliz Primer Aniversario, Mi Amor💖</h1>
+        <p>Mi querida short girl</p>
+        <p>Hoy celebramos un año juntos, y no puedo creer lo rápido que ha pasado el tiempo. Cada día a tu lado ha sido una aventura maravillosa, llena de risas, amor y momentos inolvidables.</p>
+        <p>Recuerdo el día que nos conocimos como si fuera ayer. Desde ese momento, supe que eras alguien especial. Tu sonrisa iluminó mi mundo y tu bondad tocó mi corazón de una manera que nunca antes había experimentado.</p>
+        <p>Durante este año, hemos crecido juntos, aprendido el uno del otro y creado recuerdos que atesoraré para siempre. Me has enseñado el verdadero significado del amor, la paciencia y el compromiso.</p>
+        <p>Quiero que sepas que cada día me enamoro más de ti. Tu fuerza, tu pasión y tu forma de ver la vida me inspiran a ser mejor persona. Contigo a mi lado, siento que puedo enfrentar cualquier desafío que la vida nos presente.</p>
+        <p>Gracias por ser mi compañera, mi mejor amiga y mi amor, Gracias por tu apoyo incondicional, por tu comprensión y por amarme tal como soy. Eres el regalo más hermoso que la vida me ha dado.</p>
+        <p>Estoy emocionado por todos los momentos que aún nos quedan por vivir juntos, Sueño con un futuro lleno de amor, risas y aventuras a tu lado. Que este sea solo el primero de muchos aniversarios que celebraremos juntos.</p>
+        <p>Te amo más de lo que las palabras pueden expresar, Feliz aniversario mi amor</p>
+        <p>Con todo mi corazón para la niña mas bella💖</p>
+        <img src="img/Aniversario.jpeg" alt="Foto de aniversario">
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="sound/Melanie Martinez - LIGHT SHOWER (Official Music Video).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function showLetter() {
+            document.getElementById('letter').style.display = 'block';
+            document.getElementById('backgroundMusic').play();
+        }
+
+        function hideLetter() {
+            document.getElementById('letter').style.display = 'none';
+            document.getElementById('backgroundMusic').pause();
+            document.getElementById('backgroundMusic').currentTime = 0;
+        }
+    </script>
+</body>
+</html>
